@@ -1,7 +1,8 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
-import { Geist, Syne } from 'next/font/google';
+import { Syne } from 'next/font/google';
 import Head from 'next/head';
+import Script from 'next/script';
 
 const geist = Syne({
   subsets: ['latin'],
@@ -19,9 +20,7 @@ export const metadata = {
 export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={geist.className} suppressHydrationWarning>
-      <Head>
-        <script defer src="https://cloud.umami.is/script.js" data-website-id="7e98cb80-cce6-440e-8d23-b1a4abd6adfa"></script>
-      </Head>
+        <Script defer src="https://cloud.umami.is/script.js" data-website-id="7e98cb80-cce6-440e-8d23-b1a4abd6adfa" />
       <body className="flex flex-col min-h-screen">
         <RootProvider>{children}</RootProvider>
       </body>
